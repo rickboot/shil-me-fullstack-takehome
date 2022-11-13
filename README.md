@@ -9,9 +9,9 @@
 - **Obsession:** Everyone in the Shil.me Team is striving for perfection. There's a way to finish all of these tasks in a minimal way, and a way to ✨finish✨ these tasks in a way that's over and beyond. We wanna see that special something.
 
 ## Tasks
-The project consists of three tasks ranging at three different difficulty levels.
+The project consists of two tasks of intermediate difficulty.
 
-### Task 1: Programmatic component creation [INTERMEDIATE]
+### Task 1: Programmatic component creation [FRONT-END, INTERMEDIATE]
 ⚡️ !sudo make ui
 
 **Task**
@@ -57,28 +57,52 @@ Make a general component which takes in a `config` and builds a UI based on that
 **Implementation**
 Please implement the folders `/builder` and files `Task1.js` and `task-1.js`.
 
-### Task 2: Resizing animation [EASY]
-⚡️ Bruce Banner -> Hulk
+### Task 2: Create a protected REST API [EASY]
+⚡️ Full throttle.
 
 **Task**
-Animate a grid item from arbitrary size to arbitrary size on click.
-
-**Implementation**
-Please implement the files `Task2.js` and `task-2.js`.
-
-### Task 3: Horizontal draggable masonry grid [HARD]
-⚡️ Let's see if you can make Windows 8, Windows GREAT!
-
-**Task**
-Design a draggable horizontally scrolling masonry grid similar to the Windows 8 Menu, with items of fixed width and variable height. Here, we'd like to createa masonry grid with items that are re-arrangeable via drag and drop.
+Create a rate-throttled, protected REST API for accessing data which requires an API key.
 
 **Requirements**
-- Panel on the left with button for adding new items.
-- Items draggable in the grid.
-- Items react to hover and drag (up to you)
-- Page title on top of grid (static, hard-coded)
-- Side panel sticky and fixed
-- Grid horizontal scrollable
+- A NodeJS endpoint which filters and returns results from a custom data source (Firebase). (IMPORTANT: PLEASE PROVIDE AN EMAIL ADDRESS TO gokhan@shil.me TO HAVE ACCESS TO THE FIREBASE)
+- A rate throttle such that no more than 100 calls can be made every 5 minutes per API key.
+- A data source to access how many request are made per 5 minutes per API key.
+- A programmatic way to generate new API keys.
+- Deploy to Heroku (or any other platform you want).
+- The API key check needs to be up to common standards (Google “how to create a protected REST API”).
+
+**API Endpoints**
+- `/task-2-api/retrievePostsBySlug`: Return all Twitter, Discord or Twitter-and-Discord posts all specified slugs within a date interval.
+   - Query parameters
+      - `slug ([string])`: An array of all `slug` strings to retrieve for.
+      - `platform (string, default=twitter-and-discord)`: A string defining which posts to return for the specified slugs.
+         - `twitter`: Only Twitter posts
+         - `discord`: Only Discord posts
+         - `twitter-and-discord`: Both Twitter and Discord posts
+      - `date-start (date, default=1/1/1970)`: The date to start filtering out posts.
+      - `date-end (date, default=now)`: The date to end filtering out posts.
+      - `limit (integer, default=15)`: Number of returned items.
+      - `offset (integer, default=0)`: Index of result to start returning.
+   - Returns
+      - `posts ([post-object])`: An array of `post` objects returned from database.
+      
+- `/task-2-api/retrieveSocialEngagementBySlug`:  
+   - Query parameters
+      - `slug ([string])`: An array of all `slug` strings to retrieve for.
+      - `platform (string, default=twitter-and-discord)`: A string defining which engagements to return for the specified slugs.
+         - `twitter`: Only Twitter engagements
+         - `discord`: Only Discord engagements
+         - `twitter-and-discord`: Both Twitter and Discord engagements
+      - `date-start (date, default=1/1/1970)`: The date to start filtering out engagements.
+      - `date-end (date, default=now)`: The date to end filtering out engagements.
+      - `limit (integer, default=15)`: Number of returned items.
+      - `offset (integer, default=0)`: Index of result to start returning.
+   - Returns
+      - `posts (dict)`: An dictionary with `slug`s as the keys and `{"twitter-engagement": [integer], "discord-engagement": [integer]}` as values.
+
+**Calling the API**
+The API needs to be callable by:
+`curl --header "X-API-KEY: <API_KEY>" --request GET -i --url '<HOST_URL>/task-2-api/<API_ENDPOINT>?<QUERY_KEY_1>=<QUERY_VALUE_1>&<QUERY_KEY_2>=<QUERY_VALUE_2>...'`
 
 **Implementation**
-Please implement the folders `/grid` and files `Task3.js` and `task-3.js`.
+Please implement the API endpoint at `/api/task-2-api.js` or using any other NodeJS server file (meaning the API does not need to be attached to this project). If you choose to implement the bonus front-end for requesting new API keys, please implement this on the file `task-2.js`.
