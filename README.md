@@ -1,4 +1,4 @@
-# Shil.me Full-stack Engineer Take-home Project (2022)
+# Shil.me Software Engineer Take-home Project (2022)
 
 👋 Hey there! Congrats for making it this far, that means we really liked you and thought you would make a great addition for our amazing team. This project is designed to see if your frontend abilities are complementary to ours, by putting you through three tasks similar to what you will face day to day at Shil.me.
 
