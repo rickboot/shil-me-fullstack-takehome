@@ -2,6 +2,8 @@
 
 👋 Hey there! Congrats for making it this far, that means we really liked you and thought you would make a great addition for our amazing team. This project is designed to see if your frontend abilities are complementary to ours, by putting you through three tasks similar to what you will face day to day at Shil.me.
 
+Please review a Figma mock-up of these tasks [here](https://www.figma.com/file/nBiQUgiGWgk4liKIR8lPDj/Untitled?node-id=101%3A2).
+
 ## What We're Looking For
 
 - **Independence / Autonomy:** We value all of our team members taking initiative and working with minimal management and deadlines.
