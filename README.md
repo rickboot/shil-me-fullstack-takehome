@@ -1,4 +1,4 @@
-# Shil.me Front-end Engineer Take-home Project (2022)
+# Shil.me Full-stack Engineer Take-home Project (2022)
 
 👋 Hey there! Congrats for making it this far, that means we really liked you and thought you would make a great addition for our amazing team. This project is designed to see if your frontend abilities are complementary to ours, by putting you through three tasks similar to what you will face day to day at Shil.me.
 
@@ -11,7 +11,7 @@
 ## Tasks
 The project consists of two tasks of intermediate difficulty.
 
-### Task 1: Programmatic component creation [FRONT-END, INTERMEDIATE]
+### Task 1: Programmatic component creation [FRONTEND, INTERMEDIATE]
 ⚡️ !sudo make ui
 
 **Task**
@@ -57,7 +57,7 @@ Make a general component which takes in a `config` and builds a UI based on that
 **Implementation**
 Please implement the folders `/builder` and files `Task1.js` and `task-1.js`.
 
-### Task 2: Create a protected REST API [EASY]
+### Task 2: Create a protected REST API [BACKEND, INTERMEDIATE]
 ⚡️ Full throttle.
 
 **Task**
@@ -71,7 +71,11 @@ Create a rate-throttled, protected REST API for accessing data which requires an
 - Deploy to Heroku (or any other platform you want).
 - The API key check needs to be up to common standards (Google “how to create a protected REST API”).
 
+**Bonus**
+- A very simple front-end for requesting an API key.
+
 **API Endpoints**
+
 - `/task-2-api/retrievePostsBySlug`: Return all Twitter, Discord or Twitter-and-Discord posts all specified slugs within a date interval.
    - Query parameters
       - `slug ([string])`: An array of all `slug` strings to retrieve for.
@@ -101,6 +105,7 @@ Create a rate-throttled, protected REST API for accessing data which requires an
       - `posts (dict)`: An dictionary with `slug`s as the keys and `{"twitter-engagement": [integer], "discord-engagement": [integer]}` as values.
 
 **Calling the API**
+
 The API needs to be callable by:
 `curl --header "X-API-KEY: <API_KEY>" --request GET -i --url '<HOST_URL>/task-2-api/<API_ENDPOINT>?<QUERY_KEY_1>=<QUERY_VALUE_1>&<QUERY_KEY_2>=<QUERY_VALUE_2>...'`
 
