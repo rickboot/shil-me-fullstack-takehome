@@ -40,7 +40,6 @@ export default function Builder({ config }) {
   let childComponents;
   if (components) {
     childComponents = components.map((component, index) => {
-      // const mergedConfig = { ...component, key: index, callback: handleSubmit };
       const mergedConfig = { ...component, key: index };
       return builderComponents[component.type](mergedConfig);
     });
@@ -48,10 +47,9 @@ export default function Builder({ config }) {
 
   return (
     <div className={'card'} style={style || null}>
-      {/* <form> */}
       <form onSubmit={handleSubmit}>
         {title ? <Title title={title} /> : null}
-        {description ? <Description {...config} /> : null}
+        {description ? <Description {...config} className="main-description" /> : null}
         {childComponents}
       </form>
     </div>
